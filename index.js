@@ -49,6 +49,6 @@ app.use('/api/proyectos', proyectos);
 app.use('/api/tareas', tareas);
 
 // Arranque de app
-app.listen(PORT,() => {
+app.listen(PORT,'0.0.0.0',() => {
     console.log('El servidor esta funcionando en el puerto ' + PORT)
 });
