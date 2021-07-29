@@ -22,7 +22,7 @@ router.post('/',
 //Obtener todos los proyectos
 router.get('/',
             // middleware
-            auth,
+           // auth,
             //controllers
             proyectoController.obtenerProyectos
 )
