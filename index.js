@@ -8,7 +8,7 @@ const cors = require('cors')
 const app = express();
 
 // PORT creando puerto de la app
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 //Definiendo la pagina principal
 app.get('/',(req, res) => {
@@ -31,6 +31,16 @@ app.use(express.json({ extended: true}))
 //=================================
 //          CORS
 //=================================
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
+
+
 app.use( cors());
 
 
@@ -49,6 +59,6 @@ app.use('/api/proyectos', proyectos);
 app.use('/api/tareas', tareas);
 
 // Arranque de app
-app.listen(PORT,'0.0.0.0',() => {
-    console.log('El servidor esta funcionando en el puerto ' + PORT)
+app.listen(port,'0.0.0.0',() => {
+    console.log('El servidor esta funcionando en el puerto ' + port)
 });

@@ -46,7 +46,7 @@ exports.obtenerProyectos = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).send("Hubo un error al obtener proyectos")
+        res.status(500).json({msg:"Hubo un error al obtener proyectos",error})
     }
 }
 
