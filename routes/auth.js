@@ -11,6 +11,7 @@ const auth = require('../middleware/authMiddleware');
 // Autenticar usuario
 // URL: api/auth
 router.post('/',
+ auth,
  authController.autenticarUsuario
 
 );
